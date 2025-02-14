@@ -1,0 +1,252 @@
+body {
+  background-repeat: no-repeat;
+  padding: 10px;
+  /* height: 100dvh; */
+  background-size: cover;
+  background-position: center;
+  transition: background-color 0.3s ease;
+  background-color: #0e464f;
+  background-image: linear-gradient(0deg, #0e464f 0%, #02191d 48%);
+}
+
+.ticket-container {
+  width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #041e23;
+  color: #d1e8e2;
+  text-align: left;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 40px;
+  border: 1px solid #0e464f;
+}
+/* 
+.progress-bar {
+
+} */
+
+.title {
+  font-size: 1.4rem;
+}
+
+.card-container {
+  /* width: 607px; */
+  padding: 28px;
+  background: 041e23;
+  border: 1px solid #0e464f;
+  border-radius: 40px;
+  background: #052228;
+}
+
+.event-card {
+  background: #132f35;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  /* width: 556px; */
+  padding: 4px;
+  border-radius: 24px;
+  border: 1px solid #0e464f;
+  background-color: #0e464f;
+  background-image: linear-gradient(166deg, #0e464f 0%, #02191d 48%);
+}
+
+.event-title {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.event-description {
+  margin: auto;
+  width: 340px;
+  line-height: 150%;
+  text-align: center;
+  font-size: 16px;
+}
+
+.event-info {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+hr {
+  border: 2px solid #07373f;
+  width: 100%;
+  margin: 0;
+}
+
+.ticket-selection h4 {
+  margin-bottom: 10px;
+}
+
+.ticket-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background: #02191dab;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid #0e464f;
+}
+
+.ticket-option {
+  color: #fff;
+  background: #02191dab;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  width: 158px;
+  height: 100px;
+  border: 2px solid #197686;
+}
+
+.ticket-option strong {
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+
+.ticket-option span {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.ticket-option p {
+  display: block;
+  font-size: 0.7rem;
+}
+
+.ticket-option:hover,
+.selected {
+  background: #1e5f69;
+  border: 1px solid #48d1cc;
+}
+
+.ticket-quantity {
+  margin: 20px 0;
+}
+
+.ticket-quantity select {
+  padding: 5px;
+  width: 100%;
+  height: 48px;
+  background: #132f35;
+  color: #d1e8e2;
+  border: 1px solid #48d1cc;
+  border-radius: 5px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.cancel {
+  background: transparent;
+  color: #d1e8e2;
+  border: 1px solid #48d1cc;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.next {
+  background: #48d1cc;
+  color: #0b1b1f;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #02191d;
+    background-image: none;
+  }
+  .ticket-container {
+    width: 100%;
+    /* padding: 15px; */
+  }
+
+  .card-container {
+    padding: 20px;
+  }
+
+  .ticket-container {
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .event-card {
+    padding: 30px;
+  }
+
+  .event-description {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .ticket-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ticket-option {
+    width: 100%;
+    height: fit-content;
+    padding: 15px;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .ticket-option strong {
+    font-size: 1.2rem;
+  }
+
+  .ticket-option span,
+  .ticket-option p {
+    font-size: 0.8rem;
+  }
+
+  .ticket-quantity select {
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+}
+
+/* Extra Small Screens */
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .event-title {
+    font-size: 1.4rem;
+  }
+
+  .event-description {
+    font-size: 13px;
+  }
+
+  .ticket-options {
+    gap: 15px;
+  }
+
+  .buttons button {
+    padding: 8px;
+  }
+}
