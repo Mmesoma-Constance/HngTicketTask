@@ -1,13 +1,13 @@
-/* body {
+body {
   background-color: #0d1b2a;
   font-family: Arial, sans-serif;
   color: #e0e1dd;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0;
-} */
+}
 
 .container {
   width: 600px;
@@ -22,12 +22,35 @@
   border: 1px solid #0e464f;
 }
 
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar2 {
+  width: 100%;
+  position: relative;
+  background: gray;
+  height: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.progress-status2 {
+  width: 63.33%;
+  height: 5px;
+  background: #48d1cc;
+  z-index: -10px;
+  position: absolute;
+}
+
 .form-box {
   padding: 28px;
   background: 041e23;
   border: 1px solid #0e464f;
   border-radius: 40px;
   background: #052228;
+  width: 500px;
 }
 
 h2 {

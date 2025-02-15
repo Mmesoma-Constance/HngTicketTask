@@ -1,15 +1,29 @@
-import React, { useState } from "react";
-import "./TicketSelection.css"; // Import the CSS file
+import React, { useState, useEffect } from "react";
+import "./TicketSelection.css";
 import { NavLink } from "react-router-dom";
 
 const TicketSelection = () => {
   const [selectedTicket, setSelectedTicket] = useState("Free");
   const [ticketCount, setTicketCount] = useState(1);
 
+  useEffect(() => {
+    // Save selected ticket and count to localStorage on change
+    localStorage.setItem(
+      "ticketData",
+      JSON.stringify({ type: selectedTicket, quantity: ticketCount })
+    );
+  }, [selectedTicket, ticketCount]);
+
   return (
     <div className="ticket-container">
-      <h2 className="title">Ticket Selection</h2>
-      <div className="progress-bar"></div>
+      <div className="ticket-head">
+        <h2 className="title">Ticket Selection</h2>
+        <span className="">Step 1/3</span>
+      </div>
+
+      <div className="progress-bar">
+        <div className="progress-status"></div>
+      </div>
       <div className="card-container">
         <div className="event-card">
           <h3 className="event-title">Techember Fest '25</h3>
@@ -55,11 +69,11 @@ const TicketSelection = () => {
 
             <button
               className={
-                selectedTicket === "$150 VVIP"
+                selectedTicket === "$250 VVIP"
                   ? "ticket-option selected"
                   : "ticket-option"
               }
-              onClick={() => setSelectedTicket("$150 VVIP")}
+              onClick={() => setSelectedTicket("$250 VVIP")}
             >
               <strong>$250</strong> <br />
               <span>VVIP ACCESS</span>
@@ -72,7 +86,7 @@ const TicketSelection = () => {
           <h4>Number of Tickets</h4>
           <select
             value={ticketCount}
-            onChange={(e) => setTicketCount(e.target.value)}
+            onChange={(e) => setTicketCount(parseInt(e.target.value))}
           >
             {[...Array(10).keys()].map((num) => (
               <option key={num + 1} value={num + 1}>
@@ -83,11 +97,14 @@ const TicketSelection = () => {
         </div>
 
         <div className="buttons">
-          <button className="cancel">Cancel</button>
-          <NavLink to="/attendeeDetails" className="link">
-            {" "}
-            <button className="next"> Next</button>{" "}
-          </NavLink>
+          <div>
+            <button className="cancel">Cancel</button>
+          </div>
+          <div>
+            <NavLink to="/attendeeDetails" className=" ">
+              <button className="next">Next</button>
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>

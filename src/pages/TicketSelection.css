@@ -21,10 +21,28 @@ body {
   border-radius: 40px;
   border: 1px solid #0e464f;
 }
-/* 
-.progress-bar {
 
-} */
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  width: 100%;
+  position: relative;
+  background: gray;
+  height: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.progress-status {
+  width: 33.33%;
+  height: 5px;
+  background: #48d1cc;
+  z-index: -10px;
+  position: absolute;
+}
 
 .title {
   font-size: 1.4rem;
@@ -144,6 +162,16 @@ hr {
   justify-content: space-between;
   margin-top: 20px;
   gap: 20px;
+}
+
+.buttons div {
+  width: 100%;
+  font-size: 16px;
+}
+
+.buttons div button {
+  height: 45px;
+  font-size: 15px;
 }
 
 .cancel {

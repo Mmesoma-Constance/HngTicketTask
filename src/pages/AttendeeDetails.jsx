@@ -1,5 +1,6 @@
-import { useState } from "react";
-import "./AttendeeDetails.css"; // Import the CSS file
+import React, { useState, useEffect } from "react";
+import "./AttendeeDetails.css";
+import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const AttendeeDetails = () => {
@@ -9,9 +10,17 @@ const AttendeeDetails = () => {
     avatar: null,
     request: "",
   });
-
   const [errors, setErrors] = useState({});
   const [preview, setPreview] = useState("");
+  const [ticketData, setTicketData] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("ticketData"));
+    if (storedData) {
+      setTicketData(storedData);
+    }
+  }, []);
 
   const validate = () => {
     let errors = {};
@@ -36,19 +45,25 @@ const AttendeeDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      alert("Form submitted successfully!");
-      // Handle form submission logic here
+      localStorage.setItem("attendeeData", JSON.stringify(formData));
+      navigate("/ticket");
     }
   };
 
   return (
     <div className="container">
       <div className="form-box">
-        <h2>Attendee Details</h2>
-        <p className="step-indicator">Step 2/3</p>
+        <div className="ticket-head">
+          <h2 className="title">Attendee Details</h2>
+          <span className="">Step 2/3</span>
+        </div>
+
+        <div className="progress-bar2">
+          <div className="progress-status2"></div>
+        </div>
 
         <div className="photo-container">
-          <label htmlFor="photo">Upload your photo</label>{" "}
+          <label htmlFor="photo">Upload your photo</label>
           <div className="upload-box">
             {preview ? (
               <img
@@ -58,15 +73,13 @@ const AttendeeDetails = () => {
               />
             ) : (
               <label className="upload-label">
-                {/* Drag & drop or click to upload */}
-
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handleFileChange}
                 />
                 <div className="photo-box">
-                  <span className=""> Drag & drop or click to upload</span>
+                  <span> Drag & drop or click to upload</span>
                 </div>
               </label>
             )}
@@ -76,7 +89,7 @@ const AttendeeDetails = () => {
 
         <hr />
         <form onSubmit={handleSubmit}>
-          <div className="">
+          <div>
             <label htmlFor="name">Enter your name</label>
             <input
               type="text"
@@ -86,9 +99,9 @@ const AttendeeDetails = () => {
               }
             />
             {errors.name && <p className="error">{errors.name}</p>}
-          </div>{" "}
-          <div className="">
-            <label htmlFor="name">Enter your email</label>{" "}
+          </div>
+          <div>
+            <label htmlFor="email">Enter your email</label>
             <input
               type="email"
               value={formData.email}
@@ -98,9 +111,11 @@ const AttendeeDetails = () => {
             />
             {errors.email && <p className="error">{errors.email}</p>}
           </div>
-          <div className="">
-            <label htmlFor="name">Special Request?</label>
+          <div>
+            <label htmlFor="request">Special Request?</label>
             <textarea
+              cols="30"
+              rows="10"
               value={formData.request}
               onChange={(e) =>
                 setFormData({ ...formData, request: e.target.value })
@@ -108,18 +123,18 @@ const AttendeeDetails = () => {
             />
           </div>
           <div className="buttons">
-            <NavLink to="/" className="link">
-              {" "}
-              <button type="button" className="back">
-                Back
-              </button>{" "}
-            </NavLink>
-            <NavLink to="/eventTicket" className="link">
+            <div>
+              <NavLink to="/" className="link">
+                {" "}
+                <button className="back"> Back</button>{" "}
+              </NavLink>
+            </div>
+            <div>
               {" "}
               <button type="submit" className="submit">
                 Get My Free Ticket
               </button>
-            </NavLink>
+            </div>
           </div>
         </form>
       </div>

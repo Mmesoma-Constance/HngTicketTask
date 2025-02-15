@@ -2,12 +2,13 @@ import React from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import logo from "./../assets/logo.png";
 
 const Header = () => {
   return (
     <header class="header">
       <div>
-        <img src="/logo.svg" alt="logo" width="70" height="50" />
+        <img src={logo} alt="logo" width="70" height="30" />
       </div>
       <div class="nav-links">
         <a href="">Events</a>

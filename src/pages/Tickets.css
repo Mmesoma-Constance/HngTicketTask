@@ -24,6 +24,23 @@
   margin-top: 50px;
   position: relative;
   overflow: hidden;
+  padding: 40px;
+}
+
+.ticket-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.ticket-container {
+  padding: 40px;
+  display: block;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Ticket Card */
@@ -34,6 +51,14 @@
   color: white;
   padding: 15px;
   z-index: 30;
+}
+
+.ticket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: auto;
 }
 
 /* Ticket Card Corners */
@@ -72,7 +97,7 @@
   width: 290px;
   border-radius: 20px;
   padding: 15px;
-  background: transparent;
+  background: #072c31;
 }
 
 /* Ticket Header */
@@ -88,11 +113,40 @@
   text-align: center;
 }
 
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 5px;
+  border: 2px solid #133d44;
+  background: #08343c;
+  border-radius: 12px;
+}
+
+.ticket-grid p {
+  display: flex;
+  flex-direction: column;
+  /* gap: 8px; */
+  border-bottom: 1px solid gray;
+  /* border-right: 2px solid gray; */
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+.ticket-grid span {
+  color: #d2cccc92;
+  font-weight: light;
+  font-size: 15px;
+}
+
 .event-title {
   font-size: 25px;
   font-weight: 800;
   color: white;
   text-wrap: nowrap;
+}
+
+.event-info {
+  padding-top: -10px;
 }
 
 .event-details {
@@ -146,11 +200,26 @@
   font-size: 15px;
 }
 
-.value {
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  margin-top: 6px;
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar3 {
+  width: 100%;
+  position: relative;
+  background: gray;
+  height: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.progress-status3 {
+  width: 100%;
+  height: 5px;
+  background: #48d1cc;
+  z-index: -10px;
+  position: absolute;
 }
 
 /* Dashed Line */
@@ -203,7 +272,7 @@
 .btn {
   width: 100%;
   border-radius: 5px;
-  padding: 8px;
+  padding: 14px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
