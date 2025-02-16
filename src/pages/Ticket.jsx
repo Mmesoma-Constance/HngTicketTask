@@ -1,7 +1,10 @@
+
+
 import React, { useEffect, useState } from "react";
 import "./Tickets.css";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import Barcode from "./../assets/Bar Code.png";
 
 const Ticket = () => {
   const [attendee, setAttendee] = useState({});
@@ -49,7 +52,7 @@ const Ticket = () => {
         <h1 className="event-title">Techember Fest '25</h1>
         <p className="event-info">📍 Venue | 📅 March 15, 2025 | ⏰ 7:00 PM</p>
 
-        <div className="ticket-details">
+        <div className="ticket-detail">
           <img
             src={attendee.avatar || "default-avatar.png"}
             alt="Attendee Avatar"
@@ -77,21 +80,21 @@ const Ticket = () => {
           </div>
         </div>
 
-        {/* <div className="barcode">
-          <p>{barcode}</p>
-        </div> */}
+        <div className="barcode">
+          <img src={Barcode} alt="" />
+        </div>
       </div>{" "}
-      <div className="buttons">
-        <div>
-          <NavLink to="/" className="link">
-            <button className="next">Book Another Ticket</button>
-          </NavLink>
-        </div>
-        <div>
-          {" "}
-          <button className="cancel">Download Ticket</button>
-        </div>
-      </div>
+       <div className="buttons">
+         <div>
+           <NavLink to="/" className="link">
+             <button className="next">Book Another Ticket</button>
+           </NavLink>
+         </div>
+         <div>
+           {" "}
+           <button className="cancel">Download Ticket</button>
+         </div>
+       </div>
     </div>
   );
 };
